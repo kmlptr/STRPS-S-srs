@@ -1,0 +1,90 @@
+You said:
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Fitness & Rehab App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>💪 Menu</h2>
+    <ul>
+      <li><a href="#profile">👤 Profil</a></li>
+      <li><a href="#fitness">🏋️ Fitness</a></li>
+      <li><a href="#rehab">🩺 Rehabilitasi</a></li>
+      <li><a href="#progress">📈 Progress</a></li>
+      <li><a href="#" onclick="logout()">🚪 Logout</a></li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <section id="profile" class="card">
+      <h2>Profil Saya</h2>
+      <p><b>Nama:</b> <span id="userName"></span></p>
+      <p><b>Target:</b> Menurunkan berat badan 5kg dalam 2 bulan</p>
+    </section>
+
+    
+<section id="camera" class="card">
+  <h2>📷 Kamera Latihan</h2>
+
+  <div class="camera-grid">
+    <!-- Kamera Live -->
+    <div>
+      <h3>Live Kamera</h3>
+      <video id="camera" autoplay playsinline width="400"></video>
+      <div class="btn-group">
+        <button onclick="startCamera()">Start Kamera</button>
+        <button onclick="stopCamera()">Stop Kamera</button>
+        <button onclick="takeSnapshot()">📸 Ambil Foto</button>
+        <button id="recordBtn" onclick="toggleRecord()">⏺️ Start Record</button>
+      </div>
+    </div>
+
+    <!-- Video Upload -->
+    <div>
+      <h3>File Upload</h3>
+      <input type="file" id="mediaFile" accept="image/*,video/*" onchange="chooseMedia(event)">
+      <!-- Preview untuk gambar atau video -->
+      <img id="chosenImage" style="display:none; margin-top:10px; max-width:100%; border:3px solid #2980b9; border-radius:10px;" />
+      <video id="chosenVideo" controls style="display:none; margin-top:10px; max-width:100%; border:3px solid #2980b9; border-radius:10px;"></video>
+    </div>
+  </div>
+
+  <!-- Snapshot & Rekaman -->
+  <canvas id="snapshotCanvas" width="400" height="300" style="display:none; margin-top:10px;"></canvas>
+  <div id="recordingsList" style="margin-top:15px;"></div>
+</section>
+
+
+    <section id="fitness" class="card">
+      <h2>Program Fitness</h2>
+      <ul>
+        <li>🏃 Cardio 3x seminggu</li>
+        <li>🏋️ Weight Training 2x seminggu</li>
+        <li>🧘 Yoga & Stretching</li>
+      </ul>
+    </section>
+
+    <section id="rehab" class="card">
+      <h2>Program Rehabilitasi</h2>
+      <p>🦵 Terapi lutut - 2x seminggu</p>
+      <p>🤸 Latihan mobilitas ringan di rumah</p>
+    </section>
+
+    <section id="progress" class="card">
+      <h2>Progress Tracker</h2>
+      <canvas id="progressChart" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
